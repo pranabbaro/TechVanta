@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TechVanta — a professional knowledge network to share expertise, build reputation, and grow together." />
+  <title>TechVanta | Professional Knowledge Network</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a href="#top" class="brand" aria-label="TechVanta home">
+        <span class="brand-mark">
+          <i data-lucide="network"></i>
+        </span>
+        <span>
+          <strong>TechVanta</strong>
+          <small>Share Knowledge. Build Reputation.</small>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary">
+        <a class="active" href="#top">Home</a>
+        <a href="#knowledge">Explore</a>
+        <a href="#topics">Topics</a>
+        <a href="#contributors">Experts</a>
+        <a href="#communities">Communities</a>
+        <a href="#resources">Resources</a>
+        <a href="#assistant">AI Assistant</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Search">
+          <i data-lucide="search"></i>
+        </button>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+          <i data-lucide="moon"></i>
+        </button>
+        <a class="login-link" href="#login">Login</a>
+        <a class="btn btn-small btn-primary" href="#signup">Sign Up</a>
+        <button class="icon-btn menu-btn" id="menuToggle" aria-label="Open menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#top">Home</a>
+      <a href="#knowledge">Explore</a>
+      <a href="#topics">Topics</a>
+      <a href="#contributors">Experts</a>
+      <a href="#communities">Communities</a>
+      <a href="#assistant">AI Assistant</a>
+    </div>
+  </header>
+
+  <div class="global-search" id="globalSearch">
+    <div class="container">
+      <i data-lucide="search"></i>
+      <input id="globalSearchInput" type="search" placeholder="Search knowledge, professionals or topics..." />
+      <button id="searchClose" class="icon-btn" aria-label="Close search">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="hero-grid-bg"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow"><i data-lucide="sparkles"></i> Professional Knowledge Network</span>
+          <h1>Where Professionals<br><span>Share What They Know.</span></h1>
+          <p>
+            Learn, share, and grow together across technology, engineering,
+            business, science, finance, management and every professional domain.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#knowledge">
+              Explore Knowledge <i data-lucide="arrow-right"></i>
+            </a>
+            <a class="btn btn-outline" href="#publish">
+              Share Your Knowledge <i data-lucide="plus"></i>
+            </a>
+          </div>
+
+          <div class="stats">
+            <div><i data-lucide="users"></i><span><strong>250K+</strong><small>Professionals</small></span></div>
+            <div><i data-lucide="hexagon"></i><span><strong>15K+</strong><small>Topics</small></span></div>
+            <div><i data-lucide="newspaper"></i><span><strong>75K+</strong><small>Articles</small></span></div>
+            <div><i data-lucide="badge-check"></i><span><strong>2M+</strong><small>Knowledge Views</small></span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Global professional knowledge network illustration">
+          <div class="orbit orbit-1"></div>
+          <div class="orbit orbit-2"></div>
+          <div class="globe">
+            <div class="globe-lines"></div>
+            <div class="globe-core"></div>
+          </div>
+
+          <div class="network-node n1"><i data-lucide="cloud"></i></div>
+          <div class="network-node n2"><i data-lucide="code-2"></i></div>
+          <div class="network-node n3"><i data-lucide="shield-check"></i></div>
+          <div class="network-node n4"><i data-lucide="brain-circuit"></i></div>
+          <div class="network-node n5"><i data-lucide="settings"></i></div>
+          <div class="network-node n6"><i data-lucide="chart-no-axes-combined"></i></div>
+          <div class="network-node n7"><i data-lucide="database"></i></div>
+          <div class="network-node n8"><i data-lucide="landmark"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="topics">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">Discover</span>
+            <h2>Explore Top Topics</h2>
+          </div>
+          <a href="#all-topics" class="text-link">View all topics <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <div class="topic-scroller">
+          <button class="topic-card" data-topic="Cloud Computing">
+            <span class="topic-icon blue"><i data-lucide="cloud"></i></span>
+            <strong>Cloud Computing</strong><small>12.5K Articles</small>
+          </button>
+          <button class="topic-card" data-topic="Artificial Intelligence">
+            <span class="topic-icon purple"><i data-lucide="brain-circuit"></i></span>
+            <strong>Artificial Intelligence</strong><small>8.7K Articles</small>
+          </button>
+          <button class="topic-card" data-topic="Cybersecurity">
+            <span class="topic-icon red"><i data-lucide="shield-check"></i></span>
+            <strong>Cybersecurity</strong><small>7.3K Articles</small>
+          </button>
+          <button class="topic-card" data-topic="Data Science">
+            <span class="topic-icon teal"><i data-lucide="chart-scatter"></i></span>
+            <strong>Data Science</strong><small>6.9K Articles</small>
+          </button>
+          <button class="topic-card" data-topic="DevOps">
+            <span class="topic-icon navy"><i data-lucide="infinity"></i></span>
+            <strong>DevOps</strong><small>6.3K Articles</small>
+          </button>
+          <button class="topic-card" data-topic="Software Development">
+            <span class="topic-icon indigo"><i data-lucide="monitor-code"></i></span>
+            <strong>Software Development</strong><small>15.8K Articles</small>
+          </button>
+          <button class="topic-card" data-topic="Project Management">
+            <span class="topic-icon orange"><i data-lucide="workflow"></i></span>
+            <strong>Project Management</strong><small>5.4K Articles</small>
+          </button>
+          <button class="topic-card" data-topic="Finance">
+            <span class="topic-icon navy"><i data-lucide="chart-no-axes-combined"></i></span>
+            <strong>Finance</strong><small>4.7K Articles</small>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="knowledge-section" id="knowledge">
+      <div class="container knowledge-layout">
+        <div class="knowledge-main">
+          <div class="section-heading compact">
+            <div>
+              <span class="section-kicker">Popular now</span>
+              <h2>Trending Knowledge</h2>
+            </div>
+            <a href="#more" class="text-link">View more <i data-lucide="arrow-right"></i></a>
+          </div>
+
+          <div class="filter-tabs" role="tablist">
+            <button class="filter-tab active" data-filter="all">All</button>
+            <button class="filter-tab" data-filter="article">Articles</button>
+            <button class="filter-tab" data-filter="tutorial">Tutorials</button>
+            <button class="filter-tab" data-filter="howto">How-To Guides</button>
+            <button class="filter-tab" data-filter="case">Case Studies</button>
+            <button class="filter-tab" data-filter="project">Projects</button>
+          </div>
+
+          <div class="article-list">
+            <article class="knowledge-card" data-type="article" data-search="azure architecture cloud zero trust landing zone">
+              <div class="author">
+                <div class="avatar avatar-a">PB</div>
+                <div><strong>Pranab Baro</strong><small>Cloud Architect</small><small>8 min read</small></div>
+              </div>
+              <div class="article-body">
+                <div class="tags"><span>Azure Architecture</span><span>Advanced</span></div>
+                <h3>Designing a Zero Trust Azure Landing Zone</h3>
+                <p>Step-by-step guide to design and implement a secure, scalable and compliant Azure landing zone using enterprise patterns.</p>
+                <div class="card-actions">
+                  <button class="useful-btn"><i data-lucide="thumbs-up"></i> <span class="useful-count">342</span> Useful</button>
+                  <button><i data-lucide="message-circle"></i> 57</button>
+                  <button class="save-btn"><i data-lucide="bookmark"></i></button>
+                  <button><i data-lucide="share-2"></i></button>
+                </div>
+              </div>
+              <div class="article-visual architecture-mini">
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </article>
+
+            <article class="knowledge-card" data-type="tutorial" data-search="machine learning artificial intelligence feature engineering data science">
+              <div class="author">
+                <div class="avatar avatar-b">SC</div>
+                <div><strong>Sarah Chen</strong><small>Data Scientist</small><small>10 min read</small></div>
+              </div>
+              <div class="article-body">
+                <div class="tags"><span>Machine Learning</span><span>Intermediate</span></div>
+                <h3>Feature Engineering for ML Models</h3>
+                <p>Best practices and techniques for creating powerful features that improve model performance significantly.</p>
+                <div class="card-actions">
+                  <button class="useful-btn"><i data-lucide="thumbs-up"></i> <span class="useful-count">276</span> Useful</button>
+                  <button><i data-lucide="message-circle"></i> 32</button>
+                  <button class="save-btn"><i data-lucide="bookmark"></i></button>
+                  <button><i data-lucide="share-2"></i></button>
+                </div>
+              </div>
+              <div class="article-visual ml-mini">
+                <i data-lucide="chart-scatter"></i>
+              </div>
+            </article>
+
+            <article class="knowledge-card" data-type="howto" data-search="devops gitops argocd kubernetes ci cd software">
+              <div class="author">
+                <div class="avatar avatar-c">AJ</div>
+                <div><strong>Alex Johnson</strong><small>DevOps Engineer</small><small>12 min read</small></div>
+              </div>
+              <div class="article-body">
+                <div class="tags"><span>DevOps</span><span>Advanced</span></div>
+                <h3>GitOps with ArgoCD: Complete Guide</h3>
+                <p>Implement GitOps workflow using ArgoCD for Kubernetes environments with practical examples.</p>
+                <div class="card-actions">
+                  <button class="useful-btn"><i data-lucide="thumbs-up"></i> <span class="useful-count">198</span> Useful</button>
+                  <button><i data-lucide="message-circle"></i> 21</button>
+                  <button class="save-btn"><i data-lucide="bookmark"></i></button>
+                  <button><i data-lucide="share-2"></i></button>
+                </div>
+              </div>
+              <div class="article-visual devops-mini">
+                <i data-lucide="infinity"></i>
+              </div>
+            </article>
+
+            <article class="knowledge-card hidden-demo-card" data-type="case" data-search="cybersecurity ransomware incident response case study">
+              <div class="author">
+                <div class="avatar avatar-d">ML</div>
+                <div><strong>Michael Lee</strong><small>Security Expert</small><small>14 min read</small></div>
+              </div>
+              <div class="article-body">
+                <div class="tags"><span>Cybersecurity</span><span>Case Study</span></div>
+                <h3>Incident Response: Lessons From a Ransomware Event</h3>
+                <p>A practical breakdown of detection, containment, recovery and the controls that reduced future exposure.</p>
+                <div class="card-actions">
+                  <button class="useful-btn"><i data-lucide="thumbs-up"></i> <span class="useful-count">164</span> Useful</button>
+                  <button><i data-lucide="message-circle"></i> 18</button>
+                  <button class="save-btn"><i data-lucide="bookmark"></i></button>
+                  <button><i data-lucide="share-2"></i></button>
+                </div>
+              </div>
+              <div class="article-visual security-mini"><i data-lucide="shield-check"></i></div>
+            </article>
+
+            <article class="knowledge-card hidden-demo-card" data-type="project" data-search="project management transformation program agile delivery">
+              <div class="author">
+                <div class="avatar avatar-e">NP</div>
+                <div><strong>Nina Patel</strong><small>Program Manager</small><small>9 min read</small></div>
+              </div>
+              <div class="article-body">
+                <div class="tags"><span>Project Management</span><span>Project</span></div>
+                <h3>Building a Delivery Governance Model for Complex Programs</h3>
+                <p>A reusable governance model for milestones, decisions, risks, dependencies and executive reporting.</p>
+                <div class="card-actions">
+                  <button class="useful-btn"><i data-lucide="thumbs-up"></i> <span class="useful-count">141</span> Useful</button>
+                  <button><i data-lucide="message-circle"></i> 17</button>
+                  <button class="save-btn"><i data-lucide="bookmark"></i></button>
+                  <button><i data-lucide="share-2"></i></button>
+                </div>
+              </div>
+              <div class="article-visual project-mini"><i data-lucide="workflow"></i></div>
+            </article>
+          </div>
+
+          <button class="show-more-btn" id="showMoreArticles">View More Trending <i data-lucide="arrow-down"></i></button>
+        </div>
+
+        <aside class="sidebar">
+          <section class="side-card assistant-card" id="assistant">
+            <div class="side-card-head">
+              <div>
+                <span class="badge">Beta</span>
+                <h3>AI Knowledge Assistant</h3>
+              </div>
+              <span class="assistant-logo"><i data-lucide="sparkles"></i></span>
+            </div>
+            <p>Ask questions, get insights, and discover knowledge from our professional community.</p>
+
+            <form class="assistant-input" id="assistantForm">
+              <input id="assistantQuestion" type="text" placeholder="Ask anything technical..." />
+              <button type="submit" aria-label="Ask AI"><i data-lucide="send"></i></button>
+            </form>
+            <div class="assistant-response" id="assistantResponse"></div>
+
+            <h4>Popular Questions</h4>
+            <button class="question-link">How does Azure Private Endpoint work?</button>
+            <button class="question-link">Best practices for Kubernetes security?</button>
+            <button class="question-link">What is Domain Driven Design?</button>
+            <button class="question-link">Explain CI/CD pipeline with examples</button>
+          </section>
+
+          <section class="side-card" id="contributors">
+            <div class="side-card-head">
+              <h3>Top Contributors</h3>
+              <a href="#all-experts">View all</a>
+            </div>
+
+            <ol class="contributors">
+              <li><span class="rank gold">1</span><span class="mini-avatar">PB</span><span><strong>Pranab Baro</strong><small>Cloud Architect</small></span><em>12.4K</em></li>
+              <li><span class="rank">2</span><span class="mini-avatar">SC</span><span><strong>Sarah Chen</strong><small>Data Scientist</small></span><em>9.8K</em></li>
+              <li><span class="rank">3</span><span class="mini-avatar">AJ</span><span><strong>Alex Johnson</strong><small>DevOps Engineer</small></span><em>8.7K</em></li>
+              <li><span class="rank">4</span><span class="mini-avatar">ML</span><span><strong>Michael Lee</strong><small>Security Expert</small></span><em>7.6K</em></li>
+              <li><span class="rank">5</span><span class="mini-avatar">PP</span><span><strong>Priya Patel</strong><small>AI Engineer</small></span><em>6.9K</em></li>
+            </ol>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <section class="communities-section" id="communities">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">Connect</span>
+            <h2>Active Communities</h2>
+          </div>
+          <a href="#all-communities" class="text-link">View all communities <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <div class="community-grid">
+          <article class="community-card">
+            <span class="community-icon"><i data-lucide="cloud-cog"></i></span>
+            <h3>Azure Architects</h3><small>128K Members</small>
+            <p>Best practices, architecture patterns and solutions.</p>
+            <button class="join-btn">Join Community</button>
+          </article>
+          <article class="community-card">
+            <span class="community-icon"><i data-lucide="brain-circuit"></i></span>
+            <h3>AI & ML Engineers</h3><small>98K Members</small>
+            <p>Discussions on AI, ML models, tools and research.</p>
+            <button class="join-btn">Join Community</button>
+          </article>
+          <article class="community-card">
+            <span class="community-icon"><i data-lucide="git-branch"></i></span>
+            <h3>DevOps Community</h3><small>85K Members</small>
+            <p>CI/CD, automation, monitoring and DevOps culture.</p>
+            <button class="join-btn">Join Community</button>
+          </article>
+          <article class="community-card">
+            <span class="community-icon"><i data-lucide="shield-check"></i></span>
+            <h3>Cybersecurity Experts</h3><small>76K Members</small>
+            <p>Security insights, threats, protection and more.</p>
+            <button class="join-btn">Join Community</button>
+          </article>
+          <article class="community-card">
+            <span class="community-icon"><i data-lucide="chart-no-axes-combined"></i></span>
+            <h3>Data Science Hub</h3><small>65K Members</small>
+            <p>Data analysis, visualization and predictive modeling.</p>
+            <button class="join-btn">Join Community</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="identity-section" id="resources">
+      <div class="container">
+        <div class="identity-panel">
+          <div class="identity-title">
+            <span class="section-kicker light">Your professional identity</span>
+            <h2>Build Your Professional Knowledge Identity</h2>
+          </div>
+          <div class="identity-grid">
+            <div><i data-lucide="square-pen"></i><span><strong>Share Knowledge</strong><small>Publish articles, tutorials and insights.</small></span></div>
+            <div><i data-lucide="badge-check"></i><span><strong>Build Reputation</strong><small>Earn recognition through valuable contributions.</small></span></div>
+            <div><i data-lucide="users-round"></i><span><strong>Grow Network</strong><small>Connect with experts and learn from communities.</small></span></div>
+            <div><i data-lucide="briefcase-business"></i><span><strong>Advance Career</strong><small>Showcase expertise and unlock opportunities.</small></span></div>
+          </div>
+          <a class="btn btn-primary identity-cta" id="signup" href="#top">Get Started Free</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="publish-section" id="publish">
+      <div class="container publish-panel">
+        <span class="publish-icon"><i data-lucide="pen-line"></i></span>
+        <div>
+          <span class="section-kicker">Contribute</span>
+          <h2>Knowledge becomes more valuable when it is shared.</h2>
+          <p>Articles, tutorials, case studies, architecture diagrams, projects, research and professional lessons all belong here.</p>
+        </div>
+        <button class="btn btn-primary" id="publishButton">Start Publishing</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="publishModal" aria-hidden="true">
+    <div class="modal">
+      <button class="modal-close icon-btn" id="modalClose"><i data-lucide="x"></i></button>
+      <span class="section-kicker">Create</span>
+      <h2>What would you like to publish?</h2>
+      <div class="publish-options">
+        <button><i data-lucide="file-text"></i><span><strong>Technical Article</strong><small>Long-form professional knowledge</small></span></button>
+        <button><i data-lucide="book-open-check"></i><span><strong>Tutorial / How-To</strong><small>Teach something step-by-step</small></span></button>
+        <button><i data-lucide="workflow"></i><span><strong>Architecture / Diagram</strong><small>Explain a visual design</small></span></button>
+        <button><i data-lucide="flask-conical"></i><span><strong>Case Study / Research</strong><small>Share evidence and findings</small></span></button>
+      </div>
+      <p class="modal-note">Publishing workflow will be connected when we build the authenticated application.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div class="brand footer-brand">
+        <span class="brand-mark"><i data-lucide="network"></i></span>
+        <span><strong>TechVanta</strong><small>Where professionals share what they know.</small></span>
+      </div>
+      <p>© <span id="year"></span> TechVanta. Front-page MVP.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
