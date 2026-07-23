@@ -1,140 +1,67 @@
-document.addEventListener("DOMContentLoaded", () => {
-  if (window.lucide) lucide.createIcons();
-
-  const menuToggle = document.getElementById("menuToggle");
-  const mobileNav = document.getElementById("mobileNav");
-  menuToggle?.addEventListener("click", () => mobileNav.classList.toggle("open"));
-  mobileNav?.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mobileNav.classList.remove("open")));
-
-  const searchToggle = document.getElementById("searchToggle");
-  const searchClose = document.getElementById("searchClose");
-  const globalSearch = document.getElementById("globalSearch");
-  const globalSearchInput = document.getElementById("globalSearchInput");
-  const cards = [...document.querySelectorAll(".knowledge-card")];
-
-  function openSearch() {
-    globalSearch.classList.add("open");
-    setTimeout(() => globalSearchInput.focus(), 50);
-  }
-  function closeSearch() {
-    globalSearch.classList.remove("open");
-    cards.forEach(c => c.style.display = "");
-  }
-  searchToggle?.addEventListener("click", openSearch);
-  searchClose?.addEventListener("click", closeSearch);
-
-  globalSearchInput?.addEventListener("input", e => {
-    const q = e.target.value.trim().toLowerCase();
-    document.getElementById("knowledge")?.scrollIntoView({behavior:"smooth", block:"start"});
-    cards.forEach(card => {
-      const haystack = (card.dataset.search + " " + card.innerText).toLowerCase();
-      card.style.display = !q || haystack.includes(q) ? "grid" : "none";
-    });
-  });
-
-  const themeToggle = document.getElementById("themeToggle");
-  themeToggle?.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    themeToggle.innerHTML = document.body.classList.contains("dark")
-      ? '<i data-lucide="sun"></i>'
-      : '<i data-lucide="moon"></i>';
-    if (window.lucide) lucide.createIcons();
-  });
-
-  document.querySelectorAll(".topic-card").forEach(topic => {
-    topic.addEventListener("click", () => {
-      document.querySelectorAll(".topic-card").forEach(t => t.classList.remove("selected"));
-      topic.classList.add("selected");
-      globalSearchInput.value = topic.dataset.topic;
-      cards.forEach(card => {
-        const haystack = (card.dataset.search + " " + card.innerText).toLowerCase();
-        card.style.display = haystack.includes(topic.dataset.topic.toLowerCase()) ? "grid" : "none";
-      });
-      document.getElementById("knowledge")?.scrollIntoView({behavior:"smooth"});
-    });
-  });
-
-  document.querySelectorAll(".filter-tab").forEach(tab => {
-    tab.addEventListener("click", () => {
-      document.querySelectorAll(".filter-tab").forEach(t => t.classList.remove("active"));
-      tab.classList.add("active");
-      const filter = tab.dataset.filter;
-      cards.forEach(card => {
-        const matches = filter === "all" || card.dataset.type === filter;
-        card.style.display = matches ? "grid" : "none";
-      });
-    });
-  });
-
-  document.querySelectorAll(".useful-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const counter = btn.querySelector(".useful-count");
-      const selected = btn.classList.toggle("active");
-      counter.textContent = String(Number(counter.textContent) + (selected ? 1 : -1));
-      btn.querySelector("svg")?.setAttribute("fill", selected ? "currentColor" : "none");
-    });
-  });
-
-  document.querySelectorAll(".save-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      btn.classList.toggle("active");
-      btn.querySelector("svg")?.setAttribute("fill", btn.classList.contains("active") ? "currentColor" : "none");
-    });
-  });
-
-  document.querySelectorAll(".join-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const joined = btn.classList.toggle("joined");
-      btn.textContent = joined ? "✓ Joined" : "Join Community";
-    });
-  });
-
-  const showMore = document.getElementById("showMoreArticles");
-  showMore?.addEventListener("click", () => {
-    document.querySelectorAll(".hidden-demo-card").forEach(card => {
-      card.classList.remove("hidden-demo-card");
-      card.style.display = "grid";
-    });
-    showMore.remove();
-  });
-
-  const assistantForm = document.getElementById("assistantForm");
-  const assistantQuestion = document.getElementById("assistantQuestion");
-  const assistantResponse = document.getElementById("assistantResponse");
-  assistantForm?.addEventListener("submit", e => {
-    e.preventDefault();
-    const q = assistantQuestion.value.trim();
-    if (!q) return;
-    assistantResponse.style.display = "block";
-    assistantResponse.textContent = `Demo mode: "${q}" will be answered from your professional knowledge base when the AI backend is connected.`;
-  });
-
-  document.querySelectorAll(".question-link").forEach(q => {
-    q.addEventListener("click", () => {
-      assistantQuestion.value = q.textContent.trim();
-      assistantQuestion.focus();
-    });
-  });
-
-  const modal = document.getElementById("publishModal");
-  const publishButton = document.getElementById("publishButton");
-  const modalClose = document.getElementById("modalClose");
-  const openModal = () => {
-    modal.classList.add("open");
-    modal.setAttribute("aria-hidden", "false");
-  };
-  const closeModal = () => {
-    modal.classList.remove("open");
-    modal.setAttribute("aria-hidden", "true");
-  };
-  publishButton?.addEventListener("click", openModal);
-  document.querySelector('a[href="#publish"]')?.addEventListener("click", e => {
-    e.preventDefault();
-    openModal();
-  });
-  modalClose?.addEventListener("click", closeModal);
-  modal?.addEventListener("click", e => { if (e.target === modal) closeModal(); });
-  document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
-
-  document.getElementById("year").textContent = new Date().getFullYear();
-});
+const data={
+people:[
+{name:'Sarah Chen',role:'Data Scientist',skills:['Machine Learning','Data Science'],score:92,initials:'SC'},
+{name:'Alex Johnson',role:'DevOps Engineer',skills:['Kubernetes','GitOps'],score:88,initials:'AJ'},
+{name:'Michael Lee',role:'Cybersecurity Architect',skills:['Zero Trust','Security'],score:90,initials:'ML'},
+{name:'Priya Patel',role:'AI Engineer',skills:['AI Agents','LLMs'],score:91,initials:'PP'},
+{name:'Nina Kapoor',role:'Program Manager',skills:['PMO','Agile'],score:84,initials:'NK'},
+{name:'Daniel Wong',role:'Cloud FinOps Lead',skills:['FinOps','Cloud Cost'],score:86,initials:'DW'},
+{name:'Aarav Shah',role:'SAP Architect',skills:['SAP HANA','Azure'],score:89,initials:'AS'},
+{name:'Emily Carter',role:'Product Designer',skills:['UX','Product'],score:82,initials:'EC'}],
+posts:[
+{id:1,author:'Pranab Baro',role:'Cloud Architect',initials:'PB',time:'2h',title:'Designing a Zero Trust Azure Landing Zone',body:'A practical enterprise landing zone should not start with resource deployment. It should start with identity, governance, network boundaries, policy, observability and a clear operating model.',tags:['Azure','ZeroTrust','CloudArchitecture'],useful:342,comments:57,reposts:18,media:'diagram',category:'recommended'},
+{id:2,author:'Sarah Chen',role:'Data Scientist',initials:'SC',time:'4h',title:'Feature Engineering for Production ML Models',body:'Model performance is often improved more by better features than by simply moving to a more complex algorithm. This post summarizes the checks I use before production.',tags:['MachineLearning','DataScience','MLOps'],useful:276,comments:32,reposts:11,media:'light',category:'following'},
+{id:3,author:'Alex Johnson',role:'DevOps Engineer',initials:'AJ',time:'6h',title:'GitOps with ArgoCD: the operating model matters',body:'GitOps is not only about storing YAML in Git. The value comes from a disciplined pull-based deployment model, clear ownership, policy enforcement and auditable change.',tags:['DevOps','GitOps','Kubernetes'],useful:198,comments:21,reposts:9,media:'diagram',category:'latest'}],
+knowledge:[
+{type:'Architecture',title:'Designing a Zero Trust Azure Landing Zone',author:'Pranab Baro',views:'12.4K',icon:'workflow',topic:'Cloud'},
+{type:'Tutorial',title:'Feature Engineering for ML Models',author:'Sarah Chen',views:'9.8K',icon:'brain-circuit',topic:'AI'},
+{type:'How-To',title:'GitOps with ArgoCD: Complete Guide',author:'Alex Johnson',views:'8.7K',icon:'git-branch',topic:'DevOps'},
+{type:'Case Study',title:'Ransomware Incident Response Lessons',author:'Michael Lee',views:'7.6K',icon:'shield-check',topic:'Security'},
+{type:'Project',title:'AI Governance Command Center',author:'Pranab Baro',views:'6.9K',icon:'sparkles',topic:'AI'},
+{type:'Research',title:'FinOps Patterns for Multi-Cloud Teams',author:'Daniel Wong',views:'5.7K',icon:'chart-no-axes-combined',topic:'Finance'}],
+communities:[
+{name:'Azure Architects',members:'128K',icon:'cloud-cog',desc:'Enterprise patterns, networking, governance, landing zones and platform architecture.'},
+{name:'AI & ML Engineers',members:'98K',icon:'brain-circuit',desc:'LLMs, agents, ML engineering, model operations and applied AI.'},
+{name:'DevOps Community',members:'85K',icon:'git-branch',desc:'CI/CD, GitOps, automation, platform engineering and SRE.'},
+{name:'Cybersecurity Experts',members:'76K',icon:'shield-check',desc:'Threats, architecture, zero trust, governance and security operations.'},
+{name:'Project Management',members:'69K',icon:'workflow',desc:'Program delivery, PMO, governance, agile and project execution.'},
+{name:'Finance Professionals',members:'58K',icon:'landmark',desc:'Corporate finance, valuation, FinOps and financial strategy.'}],
+jobs:[
+{company:'Contoso',initials:'C',title:'Senior Cloud Architect',location:'Bengaluru · Hybrid',tags:['Azure','Architecture','Networking'],match:94},
+{company:'Fabrikam',initials:'F',title:'Principal AI Infrastructure Architect',location:'India · Remote',tags:['AI','Azure','Platform Engineering'],match:89},
+{company:'Northwind',initials:'N',title:'DevOps Platform Lead',location:'Bengaluru · Hybrid',tags:['DevOps','Kubernetes','GitOps'],match:86},
+{company:'Adventure Works',initials:'AW',title:'Technical Program Manager',location:'India · Remote',tags:['Program Management','Cloud','Agile'],match:81}],
+companies:[
+{name:'Microsoft',initials:'M',industry:'Technology',followers:'19M',topics:['Cloud','AI','Security']},
+{name:'Amazon Web Services',initials:'AWS',industry:'Cloud Computing',followers:'8.7M',topics:['Cloud','Data','AI']},
+{name:'Google Cloud',initials:'G',industry:'Cloud & AI',followers:'6.2M',topics:['AI','Cloud','Data']},
+{name:'SAP',initials:'SAP',industry:'Enterprise Software',followers:'4.9M',topics:['ERP','Data','Cloud']},
+{name:'NVIDIA',initials:'N',industry:'AI Computing',followers:'5.4M',topics:['AI','GPU','Research']},
+{name:'Adobe',initials:'A',industry:'Software',followers:'4.1M',topics:['Creative','AI','Documents']}]
+};
+let selectedCreateType='Post',saved=new Set(),currentFeed='recommended';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+function icons(){if(window.lucide)lucide.createIcons()}
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
+function showPage(name){$$('.page').forEach(p=>p.classList.remove('active'));const target=$('#page-'+name);if(target){target.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}$$('.nav-item').forEach(n=>n.classList.toggle('active',n.dataset.page===name));icons()}
+function renderFollowSuggestions(){$('#followSuggestions').innerHTML=data.people.slice(0,3).map(p=>`<div class="follow-row"><span class="avatar">${p.initials}</span><div><strong>${p.name}</strong><small>${p.role}</small></div><button class="mini-follow">Follow</button></div>`).join('')}
+function renderPeople(){$('#networkGrid').innerHTML=data.people.map(p=>`<article class="person-card"><span class="avatar">${p.initials}</span><h3>${p.name}</h3><p>${p.role}<br>Knowledge Score ${p.score}</p><div>${p.skills.map(s=>`<span class="skill-pill">${s}</span>`).join('')}</div><button class="mini-follow">Follow</button></article>`).join('')}
+function mediaVisual(type){return `<div class="post-media ${type==='light'?'light':''}"><div class="diagram-visual"><div class="diagram-box b1">${type==='light'?'Data':'Governance'}</div><div class="diagram-box b2">${type==='light'?'Features':'Identity'}</div><div class="diagram-box b3">${type==='light'?'Model':'Network'}</div><div class="diagram-box b4">${type==='light'?'Production':'Workloads'}</div><span class="diagram-line l1"></span><span class="diagram-line l2"></span><span class="diagram-line l3"></span><span class="diagram-line l4"></span></div></div>`}
+function renderFeed(){let posts=currentFeed==='recommended'?data.posts:data.posts.filter(p=>p.category===currentFeed);if(!posts.length)posts=data.posts;$('#feed').innerHTML=posts.map(p=>`<article class="card post-card" data-id="${p.id}"><div class="post-head"><span class="avatar">${p.initials}</span><div class="post-author"><strong>${p.author}</strong><small>${p.role}</small><small>${p.time} · Professional knowledge</small></div><button class="follow-inline">+ Follow</button><button class="more-btn"><i data-lucide="ellipsis"></i></button></div><div class="post-content"><h2>${p.title}</h2><p>${p.body}</p><div class="post-tags">${p.tags.map(t=>`<span>#${t}</span>`).join('')}</div></div>${mediaVisual(p.media)}<div class="post-stats"><span><b class="useful-count">${p.useful}</b> professionals found this useful</span><span>${p.comments} comments · ${p.reposts} reposts</span></div><div class="post-actions"><button class="useful-action"><i data-lucide="thumbs-up"></i> Useful</button><button class="comment-action"><i data-lucide="message-circle"></i> Comment</button><button class="repost-action"><i data-lucide="repeat-2"></i> Repost</button><button class="save-action"><i data-lucide="bookmark"></i> Save</button></div><div class="comments"><div class="comment-row"><span class="avatar">PB</span><input placeholder="Add a professional comment..."><button>Post</button></div><div class="comment-list"></div></div></article>`).join('');bindPostActions();icons()}
+function bindPostActions(){$$('.useful-action').forEach(btn=>btn.onclick=()=>{btn.classList.toggle('active');const count=btn.closest('.post-card').querySelector('.useful-count');count.textContent=Number(count.textContent)+(btn.classList.contains('active')?1:-1)});$$('.comment-action').forEach(btn=>btn.onclick=()=>btn.closest('.post-card').querySelector('.comments').classList.toggle('open'));$$('.repost-action').forEach(btn=>btn.onclick=()=>{btn.classList.toggle('active');toast(btn.classList.contains('active')?'Reposted to your network':'Repost removed')});$$('.save-action').forEach(btn=>btn.onclick=()=>{const id=btn.closest('.post-card').dataset.id;btn.classList.toggle('active');btn.innerHTML=btn.classList.contains('active')?'<i data-lucide="bookmark-check"></i> Saved':'<i data-lucide="bookmark"></i> Save';btn.classList.contains('active')?saved.add(id):saved.delete(id);icons();renderSaved()});$$('.post-card .comment-row button').forEach(btn=>btn.onclick=()=>{const input=btn.previousElementSibling,val=input.value.trim();if(!val)return;btn.closest('.comments').querySelector('.comment-list').innerHTML+=`<div class="comment"><strong>Pranab Baro</strong>${val}</div>`;input.value=''});$$('.follow-inline').forEach(btn=>btn.onclick=()=>btn.textContent=btn.textContent.includes('Following')?'+ Follow':'✓ Following')}
+function renderKnowledge(list=data.knowledge){$('#knowledgeGrid').innerHTML=list.map(k=>`<article class="knowledge-tile"><div class="knowledge-thumb"><i data-lucide="${k.icon}"></i></div><div class="knowledge-tile-body"><small>${k.type} · ${k.topic}</small><h3>${k.title}</h3><p>Professional knowledge shared by ${k.author}.</p><div class="knowledge-meta"><span>${k.author}</span><span>${k.views} views</span></div></div></article>`).join('');icons()}
+function renderTopics(){const topics=['All','Cloud','AI','Security','DevOps','Management','Finance','Engineering','Data','Healthcare'];$('#topicStrip').innerHTML=topics.map((t,i)=>`<button class="topic-chip ${i===0?'active':''}" data-topic="${t}">${t}</button>`).join('');$$('.topic-chip').forEach(btn=>btn.onclick=()=>{$$('.topic-chip').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderKnowledge(btn.dataset.topic==='All'?data.knowledge:data.knowledge.filter(k=>k.topic===btn.dataset.topic))})}
+function renderCommunities(){$('#communityGrid').innerHTML=data.communities.map(c=>`<article class="community-card"><span class="community-icon"><i data-lucide="${c.icon}"></i></span><h3>${c.name}</h3><small>${c.members} members</small><p>${c.desc}</p><div class="community-footer"><span class="skill-pill">Active today</span><button>Join Community</button></div></article>`).join('');$$('.community-footer button').forEach(btn=>btn.onclick=()=>{btn.classList.toggle('joined');btn.textContent=btn.classList.contains('joined')?'✓ Joined':'Join Community'});icons()}
+function renderJobs(){$('#jobList').innerHTML=data.jobs.map(j=>`<article class="job-card"><div class="company-logo">${j.initials}</div><div><h3>${j.title}</h3><p>${j.company}</p><p>${j.location}</p><div class="job-tags">${j.tags.map(t=>`<span>${t}</span>`).join('')}</div></div><div class="match"><strong>${j.match}%</strong><span>Skill Match</span><button class="outline-btn">View Job</button></div></article>`).join('')}
+function renderCompanies(){$('#companyGrid').innerHTML=data.companies.map(c=>`<article class="company-card"><div class="company-card-top"><div class="company-logo">${c.initials}</div><div><h3>${c.name}</h3><small>${c.industry} · ${c.followers} followers</small></div></div><p>Professional knowledge and updates from ${c.name}.</p><div>${c.topics.map(t=>`<span class="skill-pill">${t}</span>`).join('')}</div><button class="mini-follow">Follow Company</button></article>`).join('')}
+function renderFeatured(){$('#featuredGrid').innerHTML=data.knowledge.slice(0,3).map(k=>`<article class="knowledge-tile"><div class="knowledge-thumb"><i data-lucide="${k.icon}"></i></div><div class="knowledge-tile-body"><small>${k.type}</small><h3>${k.title}</h3><div class="knowledge-meta"><span>${k.views} views</span><span>Useful</span></div></div></article>`).join('');icons()}
+function renderSaved(){const list=data.posts.filter(p=>saved.has(String(p.id)));$('#savedGrid').innerHTML=list.length?list.map(p=>`<article class="knowledge-tile"><div class="knowledge-thumb"><i data-lucide="bookmark-check"></i></div><div class="knowledge-tile-body"><small>Saved Post</small><h3>${p.title}</h3><div class="knowledge-meta"><span>${p.author}</span><span>${p.useful} Useful</span></div></div></article>`).join(''):`<div class="search-result"><h3>No saved knowledge yet</h3><p>Use the Save button on any post and it will appear here.</p></div>`;icons()}
+function renderEvents(){const events=[['calendar-days','Enterprise AI Governance Summit','Aug 12 · Online','1.8K attending'],['cloud-cog','Azure Architecture Community Live','Aug 18 · Online','920 attending'],['shield-check','Zero Trust Security Workshop','Aug 22 · Bengaluru','620 attending'],['users-round','Professional Knowledge Meetup','Sep 05 · Online','1.1K interested']];$('#eventGrid').innerHTML=events.map(e=>`<article class="event-card"><div class="event-banner"><i data-lucide="${e[0]}"></i></div><div class="event-card-body"><small class="eyebrow">Professional Event</small><h3>${e[1]}</h3><p>${e[2]}</p><div class="event-meta"><span>${e[3]}</span><button class="mini-follow">Attend</button></div></div></article>`).join('');icons()}
+function renderCourses(){const courses=[['graduation-cap','Azure Architecture Foundations','6 modules','4.9 ★'],['brain-circuit','AI Agents for Professionals','8 modules','4.8 ★'],['git-branch','Practical GitOps','5 modules','4.8 ★'],['chart-no-axes-combined','FinOps for Cloud Architects','7 modules','4.7 ★']];$('#courseGrid').innerHTML=courses.map(c=>`<article class="course-card"><div class="course-banner"><i data-lucide="${c[0]}"></i></div><div class="course-card-body"><small class="eyebrow">Learning Path</small><h3>${c[1]}</h3><p>Community-authored professional learning.</p><div class="course-meta"><span>${c[2]}</span><span>${c[3]}</span></div></div></article>`).join('');icons()}
+function renderQuestions(){const qs=[['How should Azure Private Endpoint DNS be designed across multiple subscriptions?','Azure Networking','18 answers · 342 Useful'],['What are the practical differences between GitOps and a normal CI/CD deployment?','DevOps','12 answers · 224 Useful'],['How should an enterprise measure AI governance maturity?','AI Governance','9 answers · 198 Useful'],['What makes a project handover operationally complete?','Project Management','15 answers · 176 Useful']];$('#questionList').innerHTML=qs.map(q=>`<article class="question-card"><small class="eyebrow">${q[1]}</small><h3>${q[0]}</h3><p>Community discussion with professional answers, references and practical implementation guidance.</p><div class="question-meta"><span>${q[2]}</span><button class="mini-follow">View Answers</button></div></article>`).join('')}
+function renderMessages(){const msgs=[['SC','Sarah Chen','Can you share the reference architecture?','5m'],['AJ','Alex Johnson','Great post on landing zones.','1h'],['ML','Michael Lee','I added a security perspective.','3h'],['PP','Priya Patel','Would you like to collaborate on the AI article?','1d']];$('#messageList').innerHTML=msgs.map(m=>`<div class="message-item"><span class="avatar">${m[0]}</span><div><strong>${m[1]}</strong><p>${m[2]}</p></div><span class="message-time">${m[3]}</span></div>`).join('')}
+function renderNotifications(){const notes=[['thumbs-up','Sarah Chen found your article useful.'],['message-circle','Alex Johnson commented on your Zero Trust post.'],['user-plus','Michael Lee followed you.'],['sparkles','Your article is trending in Azure Architecture.'],['messages-square','New discussion in Azure Architects community.'],['briefcase-business','A new job matches 94% of your demonstrated skills.']];$('#notificationList').innerHTML=notes.map(n=>`<div class="notification-item"><span class="community-icon"><i data-lucide="${n[0]}"></i></span><div><strong>New activity</strong><p>${n[1]}</p></div></div>`).join('');icons()}
+function performSearch(q){q=q.trim();if(!q)return;showPage('search');$('#searchTitle').textContent=`Results for "${q}"`;const lc=q.toLowerCase();let results=[];data.knowledge.forEach(k=>{if((k.title+' '+k.author+' '+k.topic).toLowerCase().includes(lc))results.push(['Knowledge',k.title,`${k.author} · ${k.topic}`])});data.people.forEach(p=>{if((p.name+' '+p.role+' '+p.skills.join(' ')).toLowerCase().includes(lc))results.push(['Professional',p.name,`${p.role} · Knowledge Score ${p.score}`])});data.jobs.forEach(j=>{if((j.title+' '+j.company+' '+j.tags.join(' ')).toLowerCase().includes(lc))results.push(['Job',j.title,`${j.company} · ${j.location}`])});data.companies.forEach(c=>{if((c.name+' '+c.industry+' '+c.topics.join(' ')).toLowerCase().includes(lc))results.push(['Company',c.name,`${c.industry} · ${c.followers} followers`])});data.communities.forEach(c=>{if((c.name+' '+c.desc).toLowerCase().includes(lc))results.push(['Community',c.name,`${c.members} members`])});$('#searchResults').innerHTML=results.length?results.map(r=>`<div class="search-result"><small>${r[0]}</small><h3>${r[1]}</h3><p>${r[2]}</p></div>`).join(''):`<div class="search-result"><h3>No direct matches</h3><p>Try broader terms such as Azure, AI, DevOps, Security or Cloud.</p></div>`}
+function openCreate(type='Post'){selectedCreateType=type;$('#createOverlay').classList.add('open');$$('.create-types button').forEach(b=>b.classList.toggle('selected',b.dataset.type===type))}
+function closeCreate(){$('#createOverlay').classList.remove('open')}
+document.addEventListener('DOMContentLoaded',()=>{renderFollowSuggestions();renderPeople();renderFeed();renderKnowledge();renderTopics();renderCommunities();renderJobs();renderCompanies();renderFeatured();renderSaved();renderEvents();renderCourses();renderQuestions();renderMessages();renderNotifications();icons();$$('[data-page]').forEach(b=>b.onclick=e=>{e.preventDefault();showPage(b.dataset.page)});$('#openCreate').onclick=()=>openCreate('Post');$('#composerTrigger').onclick=()=>openCreate('Post');$$('[data-create]').forEach(b=>b.onclick=()=>openCreate(b.dataset.create));$$('.create-types button').forEach(b=>b.onclick=()=>{selectedCreateType=b.dataset.type;$$('.create-types button').forEach(x=>x.classList.toggle('selected',x===b))});$$('.close-modal').forEach(b=>b.onclick=closeCreate);$('#createOverlay').onclick=e=>{if(e.target===e.currentTarget)closeCreate()};$('#publishPost').onclick=()=>{const title=$('#postTitle').value.trim()||`${selectedCreateType} from Pranab Baro`,body=$('#postBody').value.trim()||'A new professional knowledge contribution.';data.posts.unshift({id:Date.now(),author:'Pranab Baro',role:'Cloud Architect',initials:'PB',time:'now',title,body,tags:[selectedCreateType.replace(' ','')],useful:0,comments:0,reposts:0,media:'light',category:'recommended'});$('#postTitle').value='';$('#postBody').value='';closeCreate();currentFeed='recommended';renderFeed();showPage('home');toast(`${selectedCreateType} published to the demo feed`)};$$('.feed-tab').forEach(b=>b.onclick=()=>{$$('.feed-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');currentFeed=b.dataset.feed;renderFeed()});document.addEventListener('click',e=>{const f=e.target.closest('.mini-follow');if(f&&!f.closest('.event-card')){f.classList.toggle('following');f.textContent=f.classList.contains('following')?'✓ Following':'Follow'}});$('#messageButton').onclick=()=>{$('#messageDrawer').classList.toggle('open');$('#notificationDrawer').classList.remove('open')};$('#notificationButton').onclick=()=>{$('#notificationDrawer').classList.toggle('open');$('#messageDrawer').classList.remove('open')};$$('.drawer-close').forEach(b=>b.onclick=()=>b.closest('.drawer').classList.remove('open'));$('#aiForm').onsubmit=e=>{e.preventDefault();const q=$('#aiInput').value.trim();if(!q)return;const ans=$('#aiAnswer');ans.style.display='block';ans.innerHTML=`<strong>Demo AI response</strong><br>For "${q}", TechVanta would search professional articles, community answers and expert contributions, then return a summarized answer with citations to the original contributors.`};$('#globalSearch').addEventListener('keydown',e=>{if(e.key==='Enter')performSearch(e.target.value)});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCreate();$$('.drawer').forEach(d=>d.classList.remove('open'))}})})

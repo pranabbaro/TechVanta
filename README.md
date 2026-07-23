@@ -1,45 +1,33 @@
-# TechVanta Front Page MVP
+# TechVanta V2
 
-A responsive static landing page for a professional knowledge-sharing network.
+Professional knowledge-network front-end prototype.
 
-## Run locally
+## Included
+- Home feed
+- Create post/article/architecture/case study/video/document/question/research/project/poll
+- Useful, comment, repost and save interactions
+- My Network
+- Professional profile and knowledge score
+- Knowledge explorer
+- Communities
+- Jobs with skill-match score
+- Company pages
+- Messages and notifications
+- Global search
+- Events
+- Learning
+- Q&A
+- Saved knowledge
+- AI Knowledge Assistant demo
+- Responsive desktop/mobile design
 
-Just open `index.html` in a browser.
+## GitHub Pages
+Replace the files in your current repository root with:
+- index.html
+- styles.css
+- script.js
 
-For a local web server:
-
-```bash
-python -m http.server 8000
-```
-
-Then open `http://localhost:8000`.
-
-## Host on GitHub Pages
-
-1. Create a new GitHub repository.
-2. Upload `index.html`, `styles.css`, and `script.js` to the repository root.
-3. Open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select branch **main** and folder **/(root)**.
-6. Save. GitHub will publish the site.
-
-## Current MVP interactions
-
-- Responsive navigation
-- Search/filter knowledge posts
-- Topic filtering
-- Knowledge-type tabs
-- Useful button
-- Save button
-- Join community button
-- Dark/light content theme toggle
-- Demo AI assistant box
-- Publishing modal
+Keep GitHub Pages configured to `main` and `/(root)`.
 
 ## Important
-
-The current page is front-end only. Authentication, profiles, article creation,
-comments, community membership, databases, AI responses and moderation require
-a backend/API in the next development phase.
-
-The name `TechVanta` is currently a placeholder and can be changed globally.
+This is front-end only. Interactions work in the browser, but permanent data, real users, messaging, uploads, authentication and AI require a backend/database later.

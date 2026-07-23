@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="TechVanta — a professional knowledge network to share expertise, build reputation, and grow together." />
-  <title>TechVanta | Professional Knowledge Network</title>
-
+  <meta name="description" content="TechVanta - Professional knowledge network." />
+  <title>TechVanta V2 | Professional Knowledge Network</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,428 +12,89 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header" id="top">
-    <div class="container nav-wrap">
-      <a href="#top" class="brand" aria-label="TechVanta home">
-        <span class="brand-mark">
-          <i data-lucide="network"></i>
-        </span>
-        <span>
-          <strong>TechVanta</strong>
-          <small>Share Knowledge. Build Reputation.</small>
-        </span>
-      </a>
-
-      <nav class="desktop-nav" aria-label="Primary">
-        <a class="active" href="#top">Home</a>
-        <a href="#knowledge">Explore</a>
-        <a href="#topics">Topics</a>
-        <a href="#contributors">Experts</a>
-        <a href="#communities">Communities</a>
-        <a href="#resources">Resources</a>
-        <a href="#assistant">AI Assistant</a>
-      </nav>
-
-      <div class="nav-actions">
-        <button class="icon-btn" id="searchToggle" aria-label="Search">
-          <i data-lucide="search"></i>
-        </button>
-        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
-          <i data-lucide="moon"></i>
-        </button>
-        <a class="login-link" href="#login">Login</a>
-        <a class="btn btn-small btn-primary" href="#signup">Sign Up</a>
-        <button class="icon-btn menu-btn" id="menuToggle" aria-label="Open menu">
-          <i data-lucide="menu"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="mobile-nav" id="mobileNav">
-      <a href="#top">Home</a>
-      <a href="#knowledge">Explore</a>
-      <a href="#topics">Topics</a>
-      <a href="#contributors">Experts</a>
-      <a href="#communities">Communities</a>
-      <a href="#assistant">AI Assistant</a>
-    </div>
-  </header>
-
-  <div class="global-search" id="globalSearch">
-    <div class="container">
-      <i data-lucide="search"></i>
-      <input id="globalSearchInput" type="search" placeholder="Search knowledge, professionals or topics..." />
-      <button id="searchClose" class="icon-btn" aria-label="Close search">
-        <i data-lucide="x"></i>
-      </button>
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="#" data-page="home">
+      <span class="brand-icon"><i data-lucide="network"></i></span>
+      <span><strong>TechVanta</strong><small>Professional Knowledge Network</small></span>
+    </a>
+    <div class="global-search-wrap"><i data-lucide="search"></i><input id="globalSearch" type="search" placeholder="Search knowledge, people, jobs, companies..." /></div>
+    <nav class="main-nav">
+      <button class="nav-item active" data-page="home"><i data-lucide="house"></i><span>Home</span></button>
+      <button class="nav-item" data-page="network"><i data-lucide="users"></i><span>My Network</span></button>
+      <button class="nav-item" data-page="knowledge"><i data-lucide="library"></i><span>Knowledge</span></button>
+      <button class="nav-item" data-page="communities"><i data-lucide="messages-square"></i><span>Communities</span></button>
+      <button class="nav-item" data-page="jobs"><i data-lucide="briefcase-business"></i><span>Jobs</span></button>
+      <button class="nav-item" data-page="companies"><i data-lucide="building-2"></i><span>Companies</span></button>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-action" id="messageButton"><i data-lucide="message-circle"></i><span class="notification-dot">3</span></button>
+      <button class="icon-action" id="notificationButton"><i data-lucide="bell"></i><span class="notification-dot">6</span></button>
+      <button class="create-btn" id="openCreate"><i data-lucide="plus"></i> Create</button>
+      <button class="profile-chip" data-page="profile"><span class="avatar large">PB</span><span class="profile-text"><strong>Pranab</strong><small>Cloud Architect</small></span><i data-lucide="chevron-down"></i></button>
     </div>
   </div>
+</header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-grid-bg"></div>
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow"><i data-lucide="sparkles"></i> Professional Knowledge Network</span>
-          <h1>Where Professionals<br><span>Share What They Know.</span></h1>
-          <p>
-            Learn, share, and grow together across technology, engineering,
-            business, science, finance, management and every professional domain.
-          </p>
+<main>
+<section class="page active" id="page-home">
+  <div class="container layout">
+    <aside class="left-sidebar">
+      <section class="card profile-card">
+        <div class="cover"></div>
+        <div class="profile-card-body"><span class="avatar xl">PB</span><h3>Pranab Baro</h3><p>Cloud Architect · Azure · AI · DevOps</p><div class="profile-stats"><div><strong>2.4K</strong><span>Followers</span></div><div><strong>87</strong><span>Knowledge Score</span></div></div><button class="text-button" data-page="profile">View professional profile</button></div>
+      </section>
+      <section class="card quick-links">
+        <button data-page="saved"><i data-lucide="bookmark"></i> Saved Knowledge</button>
+        <button data-page="events"><i data-lucide="calendar-days"></i> Events</button>
+        <button data-page="learning"><i data-lucide="graduation-cap"></i> Learning</button>
+        <button data-page="questions"><i data-lucide="circle-help"></i> Q&A</button>
+      </section>
+      <section class="card topics-mini"><div class="card-title-row"><h3>Topics you follow</h3><button>Manage</button></div><span># Azure</span><span># ArtificialIntelligence</span><span># Cybersecurity</span><span># DevOps</span><span># ProjectManagement</span></section>
+    </aside>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#knowledge">
-              Explore Knowledge <i data-lucide="arrow-right"></i>
-            </a>
-            <a class="btn btn-outline" href="#publish">
-              Share Your Knowledge <i data-lucide="plus"></i>
-            </a>
-          </div>
-
-          <div class="stats">
-            <div><i data-lucide="users"></i><span><strong>250K+</strong><small>Professionals</small></span></div>
-            <div><i data-lucide="hexagon"></i><span><strong>15K+</strong><small>Topics</small></span></div>
-            <div><i data-lucide="newspaper"></i><span><strong>75K+</strong><small>Articles</small></span></div>
-            <div><i data-lucide="badge-check"></i><span><strong>2M+</strong><small>Knowledge Views</small></span></div>
-          </div>
+    <section class="feed-column">
+      <section class="card composer">
+        <div class="composer-top"><span class="avatar">PB</span><button id="composerTrigger">Share professional knowledge...</button></div>
+        <div class="composer-actions">
+          <button data-create="Post"><i data-lucide="pen-line"></i> Post</button><button data-create="Article"><i data-lucide="file-text"></i> Article</button><button data-create="Architecture"><i data-lucide="workflow"></i> Diagram</button><button data-create="Video"><i data-lucide="video"></i> Video</button><button data-create="Question"><i data-lucide="circle-help"></i> Question</button>
         </div>
-
-        <div class="hero-visual" aria-label="Global professional knowledge network illustration">
-          <div class="orbit orbit-1"></div>
-          <div class="orbit orbit-2"></div>
-          <div class="globe">
-            <div class="globe-lines"></div>
-            <div class="globe-core"></div>
-          </div>
-
-          <div class="network-node n1"><i data-lucide="cloud"></i></div>
-          <div class="network-node n2"><i data-lucide="code-2"></i></div>
-          <div class="network-node n3"><i data-lucide="shield-check"></i></div>
-          <div class="network-node n4"><i data-lucide="brain-circuit"></i></div>
-          <div class="network-node n5"><i data-lucide="settings"></i></div>
-          <div class="network-node n6"><i data-lucide="chart-no-axes-combined"></i></div>
-          <div class="network-node n7"><i data-lucide="database"></i></div>
-          <div class="network-node n8"><i data-lucide="landmark"></i></div>
-        </div>
-      </div>
+      </section>
+      <section class="feed-filter"><div><button class="feed-tab active" data-feed="recommended">Recommended</button><button class="feed-tab" data-feed="following">Following</button><button class="feed-tab" data-feed="latest">Latest</button></div><button class="filter-btn"><i data-lucide="sliders-horizontal"></i> Filter</button></section>
+      <div id="feed"></div>
     </section>
 
-    <section class="content-section" id="topics">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <span class="section-kicker">Discover</span>
-            <h2>Explore Top Topics</h2>
-          </div>
-          <a href="#all-topics" class="text-link">View all topics <i data-lucide="arrow-right"></i></a>
-        </div>
-
-        <div class="topic-scroller">
-          <button class="topic-card" data-topic="Cloud Computing">
-            <span class="topic-icon blue"><i data-lucide="cloud"></i></span>
-            <strong>Cloud Computing</strong><small>12.5K Articles</small>
-          </button>
-          <button class="topic-card" data-topic="Artificial Intelligence">
-            <span class="topic-icon purple"><i data-lucide="brain-circuit"></i></span>
-            <strong>Artificial Intelligence</strong><small>8.7K Articles</small>
-          </button>
-          <button class="topic-card" data-topic="Cybersecurity">
-            <span class="topic-icon red"><i data-lucide="shield-check"></i></span>
-            <strong>Cybersecurity</strong><small>7.3K Articles</small>
-          </button>
-          <button class="topic-card" data-topic="Data Science">
-            <span class="topic-icon teal"><i data-lucide="chart-scatter"></i></span>
-            <strong>Data Science</strong><small>6.9K Articles</small>
-          </button>
-          <button class="topic-card" data-topic="DevOps">
-            <span class="topic-icon navy"><i data-lucide="infinity"></i></span>
-            <strong>DevOps</strong><small>6.3K Articles</small>
-          </button>
-          <button class="topic-card" data-topic="Software Development">
-            <span class="topic-icon indigo"><i data-lucide="monitor-code"></i></span>
-            <strong>Software Development</strong><small>15.8K Articles</small>
-          </button>
-          <button class="topic-card" data-topic="Project Management">
-            <span class="topic-icon orange"><i data-lucide="workflow"></i></span>
-            <strong>Project Management</strong><small>5.4K Articles</small>
-          </button>
-          <button class="topic-card" data-topic="Finance">
-            <span class="topic-icon navy"><i data-lucide="chart-no-axes-combined"></i></span>
-            <strong>Finance</strong><small>4.7K Articles</small>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <section class="knowledge-section" id="knowledge">
-      <div class="container knowledge-layout">
-        <div class="knowledge-main">
-          <div class="section-heading compact">
-            <div>
-              <span class="section-kicker">Popular now</span>
-              <h2>Trending Knowledge</h2>
-            </div>
-            <a href="#more" class="text-link">View more <i data-lucide="arrow-right"></i></a>
-          </div>
-
-          <div class="filter-tabs" role="tablist">
-            <button class="filter-tab active" data-filter="all">All</button>
-            <button class="filter-tab" data-filter="article">Articles</button>
-            <button class="filter-tab" data-filter="tutorial">Tutorials</button>
-            <button class="filter-tab" data-filter="howto">How-To Guides</button>
-            <button class="filter-tab" data-filter="case">Case Studies</button>
-            <button class="filter-tab" data-filter="project">Projects</button>
-          </div>
-
-          <div class="article-list">
-            <article class="knowledge-card" data-type="article" data-search="azure architecture cloud zero trust landing zone">
-              <div class="author">
-                <div class="avatar avatar-a">PB</div>
-                <div><strong>Pranab Baro</strong><small>Cloud Architect</small><small>8 min read</small></div>
-              </div>
-              <div class="article-body">
-                <div class="tags"><span>Azure Architecture</span><span>Advanced</span></div>
-                <h3>Designing a Zero Trust Azure Landing Zone</h3>
-                <p>Step-by-step guide to design and implement a secure, scalable and compliant Azure landing zone using enterprise patterns.</p>
-                <div class="card-actions">
-                  <button class="useful-btn"><i data-lucide="thumbs-up"></i> <span class="useful-count">342</span> Useful</button>
-                  <button><i data-lucide="message-circle"></i> 57</button>
-                  <button class="save-btn"><i data-lucide="bookmark"></i></button>
-                  <button><i data-lucide="share-2"></i></button>
-                </div>
-              </div>
-              <div class="article-visual architecture-mini">
-                <span></span><span></span><span></span><span></span>
-              </div>
-            </article>
-
-            <article class="knowledge-card" data-type="tutorial" data-search="machine learning artificial intelligence feature engineering data science">
-              <div class="author">
-                <div class="avatar avatar-b">SC</div>
-                <div><strong>Sarah Chen</strong><small>Data Scientist</small><small>10 min read</small></div>
-              </div>
-              <div class="article-body">
-                <div class="tags"><span>Machine Learning</span><span>Intermediate</span></div>
-                <h3>Feature Engineering for ML Models</h3>
-                <p>Best practices and techniques for creating powerful features that improve model performance significantly.</p>
-                <div class="card-actions">
-                  <button class="useful-btn"><i data-lucide="thumbs-up"></i> <span class="useful-count">276</span> Useful</button>
-                  <button><i data-lucide="message-circle"></i> 32</button>
-                  <button class="save-btn"><i data-lucide="bookmark"></i></button>
-                  <button><i data-lucide="share-2"></i></button>
-                </div>
-              </div>
-              <div class="article-visual ml-mini">
-                <i data-lucide="chart-scatter"></i>
-              </div>
-            </article>
-
-            <article class="knowledge-card" data-type="howto" data-search="devops gitops argocd kubernetes ci cd software">
-              <div class="author">
-                <div class="avatar avatar-c">AJ</div>
-                <div><strong>Alex Johnson</strong><small>DevOps Engineer</small><small>12 min read</small></div>
-              </div>
-              <div class="article-body">
-                <div class="tags"><span>DevOps</span><span>Advanced</span></div>
-                <h3>GitOps with ArgoCD: Complete Guide</h3>
-                <p>Implement GitOps workflow using ArgoCD for Kubernetes environments with practical examples.</p>
-                <div class="card-actions">
-                  <button class="useful-btn"><i data-lucide="thumbs-up"></i> <span class="useful-count">198</span> Useful</button>
-                  <button><i data-lucide="message-circle"></i> 21</button>
-                  <button class="save-btn"><i data-lucide="bookmark"></i></button>
-                  <button><i data-lucide="share-2"></i></button>
-                </div>
-              </div>
-              <div class="article-visual devops-mini">
-                <i data-lucide="infinity"></i>
-              </div>
-            </article>
-
-            <article class="knowledge-card hidden-demo-card" data-type="case" data-search="cybersecurity ransomware incident response case study">
-              <div class="author">
-                <div class="avatar avatar-d">ML</div>
-                <div><strong>Michael Lee</strong><small>Security Expert</small><small>14 min read</small></div>
-              </div>
-              <div class="article-body">
-                <div class="tags"><span>Cybersecurity</span><span>Case Study</span></div>
-                <h3>Incident Response: Lessons From a Ransomware Event</h3>
-                <p>A practical breakdown of detection, containment, recovery and the controls that reduced future exposure.</p>
-                <div class="card-actions">
-                  <button class="useful-btn"><i data-lucide="thumbs-up"></i> <span class="useful-count">164</span> Useful</button>
-                  <button><i data-lucide="message-circle"></i> 18</button>
-                  <button class="save-btn"><i data-lucide="bookmark"></i></button>
-                  <button><i data-lucide="share-2"></i></button>
-                </div>
-              </div>
-              <div class="article-visual security-mini"><i data-lucide="shield-check"></i></div>
-            </article>
-
-            <article class="knowledge-card hidden-demo-card" data-type="project" data-search="project management transformation program agile delivery">
-              <div class="author">
-                <div class="avatar avatar-e">NP</div>
-                <div><strong>Nina Patel</strong><small>Program Manager</small><small>9 min read</small></div>
-              </div>
-              <div class="article-body">
-                <div class="tags"><span>Project Management</span><span>Project</span></div>
-                <h3>Building a Delivery Governance Model for Complex Programs</h3>
-                <p>A reusable governance model for milestones, decisions, risks, dependencies and executive reporting.</p>
-                <div class="card-actions">
-                  <button class="useful-btn"><i data-lucide="thumbs-up"></i> <span class="useful-count">141</span> Useful</button>
-                  <button><i data-lucide="message-circle"></i> 17</button>
-                  <button class="save-btn"><i data-lucide="bookmark"></i></button>
-                  <button><i data-lucide="share-2"></i></button>
-                </div>
-              </div>
-              <div class="article-visual project-mini"><i data-lucide="workflow"></i></div>
-            </article>
-          </div>
-
-          <button class="show-more-btn" id="showMoreArticles">View More Trending <i data-lucide="arrow-down"></i></button>
-        </div>
-
-        <aside class="sidebar">
-          <section class="side-card assistant-card" id="assistant">
-            <div class="side-card-head">
-              <div>
-                <span class="badge">Beta</span>
-                <h3>AI Knowledge Assistant</h3>
-              </div>
-              <span class="assistant-logo"><i data-lucide="sparkles"></i></span>
-            </div>
-            <p>Ask questions, get insights, and discover knowledge from our professional community.</p>
-
-            <form class="assistant-input" id="assistantForm">
-              <input id="assistantQuestion" type="text" placeholder="Ask anything technical..." />
-              <button type="submit" aria-label="Ask AI"><i data-lucide="send"></i></button>
-            </form>
-            <div class="assistant-response" id="assistantResponse"></div>
-
-            <h4>Popular Questions</h4>
-            <button class="question-link">How does Azure Private Endpoint work?</button>
-            <button class="question-link">Best practices for Kubernetes security?</button>
-            <button class="question-link">What is Domain Driven Design?</button>
-            <button class="question-link">Explain CI/CD pipeline with examples</button>
-          </section>
-
-          <section class="side-card" id="contributors">
-            <div class="side-card-head">
-              <h3>Top Contributors</h3>
-              <a href="#all-experts">View all</a>
-            </div>
-
-            <ol class="contributors">
-              <li><span class="rank gold">1</span><span class="mini-avatar">PB</span><span><strong>Pranab Baro</strong><small>Cloud Architect</small></span><em>12.4K</em></li>
-              <li><span class="rank">2</span><span class="mini-avatar">SC</span><span><strong>Sarah Chen</strong><small>Data Scientist</small></span><em>9.8K</em></li>
-              <li><span class="rank">3</span><span class="mini-avatar">AJ</span><span><strong>Alex Johnson</strong><small>DevOps Engineer</small></span><em>8.7K</em></li>
-              <li><span class="rank">4</span><span class="mini-avatar">ML</span><span><strong>Michael Lee</strong><small>Security Expert</small></span><em>7.6K</em></li>
-              <li><span class="rank">5</span><span class="mini-avatar">PP</span><span><strong>Priya Patel</strong><small>AI Engineer</small></span><em>6.9K</em></li>
-            </ol>
-          </section>
-        </aside>
-      </div>
-    </section>
-
-    <section class="communities-section" id="communities">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <span class="section-kicker">Connect</span>
-            <h2>Active Communities</h2>
-          </div>
-          <a href="#all-communities" class="text-link">View all communities <i data-lucide="arrow-right"></i></a>
-        </div>
-
-        <div class="community-grid">
-          <article class="community-card">
-            <span class="community-icon"><i data-lucide="cloud-cog"></i></span>
-            <h3>Azure Architects</h3><small>128K Members</small>
-            <p>Best practices, architecture patterns and solutions.</p>
-            <button class="join-btn">Join Community</button>
-          </article>
-          <article class="community-card">
-            <span class="community-icon"><i data-lucide="brain-circuit"></i></span>
-            <h3>AI & ML Engineers</h3><small>98K Members</small>
-            <p>Discussions on AI, ML models, tools and research.</p>
-            <button class="join-btn">Join Community</button>
-          </article>
-          <article class="community-card">
-            <span class="community-icon"><i data-lucide="git-branch"></i></span>
-            <h3>DevOps Community</h3><small>85K Members</small>
-            <p>CI/CD, automation, monitoring and DevOps culture.</p>
-            <button class="join-btn">Join Community</button>
-          </article>
-          <article class="community-card">
-            <span class="community-icon"><i data-lucide="shield-check"></i></span>
-            <h3>Cybersecurity Experts</h3><small>76K Members</small>
-            <p>Security insights, threats, protection and more.</p>
-            <button class="join-btn">Join Community</button>
-          </article>
-          <article class="community-card">
-            <span class="community-icon"><i data-lucide="chart-no-axes-combined"></i></span>
-            <h3>Data Science Hub</h3><small>65K Members</small>
-            <p>Data analysis, visualization and predictive modeling.</p>
-            <button class="join-btn">Join Community</button>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="identity-section" id="resources">
-      <div class="container">
-        <div class="identity-panel">
-          <div class="identity-title">
-            <span class="section-kicker light">Your professional identity</span>
-            <h2>Build Your Professional Knowledge Identity</h2>
-          </div>
-          <div class="identity-grid">
-            <div><i data-lucide="square-pen"></i><span><strong>Share Knowledge</strong><small>Publish articles, tutorials and insights.</small></span></div>
-            <div><i data-lucide="badge-check"></i><span><strong>Build Reputation</strong><small>Earn recognition through valuable contributions.</small></span></div>
-            <div><i data-lucide="users-round"></i><span><strong>Grow Network</strong><small>Connect with experts and learn from communities.</small></span></div>
-            <div><i data-lucide="briefcase-business"></i><span><strong>Advance Career</strong><small>Showcase expertise and unlock opportunities.</small></span></div>
-          </div>
-          <a class="btn btn-primary identity-cta" id="signup" href="#top">Get Started Free</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="publish-section" id="publish">
-      <div class="container publish-panel">
-        <span class="publish-icon"><i data-lucide="pen-line"></i></span>
-        <div>
-          <span class="section-kicker">Contribute</span>
-          <h2>Knowledge becomes more valuable when it is shared.</h2>
-          <p>Articles, tutorials, case studies, architecture diagrams, projects, research and professional lessons all belong here.</p>
-        </div>
-        <button class="btn btn-primary" id="publishButton">Start Publishing</button>
-      </div>
-    </section>
-  </main>
-
-  <div class="modal-backdrop" id="publishModal" aria-hidden="true">
-    <div class="modal">
-      <button class="modal-close icon-btn" id="modalClose"><i data-lucide="x"></i></button>
-      <span class="section-kicker">Create</span>
-      <h2>What would you like to publish?</h2>
-      <div class="publish-options">
-        <button><i data-lucide="file-text"></i><span><strong>Technical Article</strong><small>Long-form professional knowledge</small></span></button>
-        <button><i data-lucide="book-open-check"></i><span><strong>Tutorial / How-To</strong><small>Teach something step-by-step</small></span></button>
-        <button><i data-lucide="workflow"></i><span><strong>Architecture / Diagram</strong><small>Explain a visual design</small></span></button>
-        <button><i data-lucide="flask-conical"></i><span><strong>Case Study / Research</strong><small>Share evidence and findings</small></span></button>
-      </div>
-      <p class="modal-note">Publishing workflow will be connected when we build the authenticated application.</p>
-    </div>
+    <aside class="right-sidebar">
+      <section class="card ai-card"><div class="ai-title"><span><i data-lucide="sparkles"></i></span><div><h3>AI Knowledge Assistant</h3><small>Community-grounded answers</small></div></div><p>Ask about any professional topic and discover related experts and content.</p><form id="aiForm"><input id="aiInput" placeholder="Ask a professional question..." /><button><i data-lucide="send"></i></button></form><div id="aiAnswer" class="ai-answer"></div></section>
+      <section class="card"><div class="card-title-row"><h3>Trending Knowledge</h3><button>See all</button></div><div class="trend-item"><span>1</span><div><strong>Enterprise AI Governance</strong><small>4.2K professionals discussing</small></div></div><div class="trend-item"><span>2</span><div><strong>Azure Landing Zones</strong><small>2.8K new views today</small></div></div><div class="trend-item"><span>3</span><div><strong>Platform Engineering</strong><small>1.9K professionals discussing</small></div></div><div class="trend-item"><span>4</span><div><strong>AI Agents</strong><small>Trending across Technology</small></div></div></section>
+      <section class="card"><div class="card-title-row"><h3>People to follow</h3><button data-page="network">See all</button></div><div id="followSuggestions"></div></section>
+    </aside>
   </div>
+</section>
 
-  <footer>
-    <div class="container footer-wrap">
-      <div class="brand footer-brand">
-        <span class="brand-mark"><i data-lucide="network"></i></span>
-        <span><strong>TechVanta</strong><small>Where professionals share what they know.</small></span>
-      </div>
-      <p>© <span id="year"></span> TechVanta. Front-page MVP.</p>
-    </div>
-  </footer>
+<section class="page" id="page-network"><div class="container app-page"><div class="page-hero"><div><span class="eyebrow">Professional Network</span><h1>My Network</h1><p>Discover professionals based on expertise, shared topics and communities.</p></div><button class="primary-btn"><i data-lucide="user-plus"></i> Find Professionals</button></div><div class="stats-row"><div class="metric-card"><strong>2,431</strong><span>Followers</span></div><div class="metric-card"><strong>1,204</strong><span>Following</span></div><div class="metric-card"><strong>47</strong><span>Communities</span></div><div class="metric-card"><strong>16</strong><span>Expert connections this week</span></div></div><div class="section-header"><h2>Suggested professionals</h2><button>View all</button></div><div class="people-grid" id="networkGrid"></div></div></section>
 
-  <script src="script.js"></script>
+<section class="page" id="page-knowledge"><div class="container app-page"><div class="page-hero"><div><span class="eyebrow">Explore expertise</span><h1>Knowledge</h1><p>Articles, tutorials, diagrams, case studies, research, projects and professional answers.</p></div><button class="primary-btn" data-create="Article"><i data-lucide="plus"></i> Publish Knowledge</button></div><div class="topic-strip" id="topicStrip"></div><div class="knowledge-grid" id="knowledgeGrid"></div></div></section>
+
+<section class="page" id="page-communities"><div class="container app-page"><div class="page-hero"><div><span class="eyebrow">Learn together</span><h1>Professional Communities</h1><p>Join focused communities, ask questions, share knowledge and collaborate with experts.</p></div><button class="primary-btn"><i data-lucide="plus"></i> Create Community</button></div><div class="community-grid" id="communityGrid"></div></div></section>
+
+<section class="page" id="page-jobs"><div class="container app-page"><div class="page-hero"><div><span class="eyebrow">Knowledge-based careers</span><h1>Jobs</h1><p>Discover opportunities matched against demonstrated skills and professional knowledge.</p></div><button class="outline-btn"><i data-lucide="bookmark"></i> Saved Jobs</button></div><div class="job-search"><label><i data-lucide="search"></i><input placeholder="Job title, skill or company"></label><label><i data-lucide="map-pin"></i><input placeholder="Location"></label><button class="primary-btn">Search Jobs</button></div><div class="job-list" id="jobList"></div></div></section>
+
+<section class="page" id="page-companies"><div class="container app-page"><div class="page-hero"><div><span class="eyebrow">Organizations</span><h1>Companies</h1><p>Follow organizations, explore their expertise and discover professionals who work there.</p></div></div><div class="company-grid" id="companyGrid"></div></div></section>
+
+<section class="page" id="page-profile"><div class="container profile-page"><section class="card profile-main"><div class="profile-cover"></div><div class="profile-head"><span class="avatar profile-avatar">PB</span><div class="profile-buttons"><button class="outline-btn">Share profile</button><button class="primary-btn">Edit Profile</button></div></div><div class="profile-intro"><h1>Pranab Baro</h1><p class="headline">Cloud Architect · Azure Infrastructure · AI · DevOps · Professional Knowledge Contributor</p><p class="muted">Bengaluru, India · <a href="#">2,431 followers</a> · <a href="#">1,204 following</a></p><p class="about">Cloud architecture professional sharing practical knowledge on Azure, AI, infrastructure, DevOps, governance and enterprise architecture.</p></div><div class="profile-section"><div class="section-header"><h2>Knowledge Impact</h2></div><div class="impact-grid"><div><strong>87</strong><span>Knowledge Score</span></div><div><strong>48</strong><span>Articles</span></div><div><strong>21</strong><span>Tutorials</span></div><div><strong>12</strong><span>Case Studies</span></div><div><strong>8.4K</strong><span>Useful Votes</span></div><div><strong>94</strong><span>Answers</span></div></div></div><div class="profile-section"><div class="section-header"><h2>Expertise</h2><button>Edit</button></div><div class="skill-list"><div><span>Microsoft Azure</span><div><i style="width:92%"></i></div><strong>Expert</strong></div><div><span>Cloud Architecture</span><div><i style="width:90%"></i></div><strong>Expert</strong></div><div><span>Networking</span><div><i style="width:82%"></i></div><strong>Advanced</strong></div><div><span>AI Infrastructure</span><div><i style="width:79%"></i></div><strong>Advanced</strong></div><div><span>DevOps</span><div><i style="width:70%"></i></div><strong>Advanced</strong></div></div></div><div class="profile-section"><div class="section-header"><h2>Featured Knowledge</h2><button>View all</button></div><div class="featured-grid" id="featuredGrid"></div></div></section></div></section>
+
+<section class="page" id="page-saved"><div class="container app-page"><div class="page-hero"><div><span class="eyebrow">Your library</span><h1>Saved Knowledge</h1><p>Posts, articles and resources you saved for later.</p></div></div><div id="savedGrid" class="knowledge-grid"></div></div></section>
+<section class="page" id="page-events"><div class="container app-page"><div class="page-hero"><div><span class="eyebrow">Professional events</span><h1>Events</h1><p>Webinars, conferences, workshops and community sessions.</p></div><button class="primary-btn">Create Event</button></div><div class="event-grid" id="eventGrid"></div></div></section>
+<section class="page" id="page-learning"><div class="container app-page"><div class="page-hero"><div><span class="eyebrow">Learn from experts</span><h1>Learning</h1><p>Community-authored courses, learning paths, hands-on guides and tutorials.</p></div></div><div class="course-grid" id="courseGrid"></div></div></section>
+<section class="page" id="page-questions"><div class="container app-page"><div class="page-hero"><div><span class="eyebrow">Ask professionals</span><h1>Questions & Answers</h1><p>Ask practical questions and learn from professional experience.</p></div><button class="primary-btn" data-create="Question"><i data-lucide="plus"></i> Ask Question</button></div><div id="questionList"></div></div></section>
+<section class="page" id="page-search"><div class="container app-page"><div class="page-hero"><div><span class="eyebrow">Search</span><h1 id="searchTitle">Search Results</h1><p>Results across knowledge, professionals, companies, jobs and communities.</p></div></div><div class="search-tabs"><button class="active">All</button><button>Knowledge</button><button>People</button><button>Jobs</button><button>Companies</button><button>Communities</button></div><div id="searchResults"></div></div></section>
+</main>
+
+<div class="overlay" id="createOverlay"><div class="modal create-modal"><div class="modal-header"><div><span class="eyebrow">Create</span><h2>Share professional knowledge</h2></div><button class="close-modal"><i data-lucide="x"></i></button></div><div class="create-types"><button data-type="Post"><i data-lucide="pen-line"></i><strong>Post</strong><small>Share an insight</small></button><button data-type="Article"><i data-lucide="file-text"></i><strong>Article</strong><small>Long-form knowledge</small></button><button data-type="Architecture"><i data-lucide="workflow"></i><strong>Architecture</strong><small>Diagram and design</small></button><button data-type="Case Study"><i data-lucide="chart-no-axes-combined"></i><strong>Case Study</strong><small>Real implementation</small></button><button data-type="Video"><i data-lucide="video"></i><strong>Video</strong><small>Professional video</small></button><button data-type="Document"><i data-lucide="paperclip"></i><strong>Document</strong><small>PDF or document</small></button><button data-type="Question"><i data-lucide="circle-help"></i><strong>Question</strong><small>Ask community</small></button><button data-type="Research"><i data-lucide="flask-conical"></i><strong>Research</strong><small>Findings and evidence</small></button><button data-type="Project"><i data-lucide="folder-git-2"></i><strong>Project</strong><small>Showcase work</small></button><button data-type="Poll"><i data-lucide="list-checks"></i><strong>Poll</strong><small>Collect opinions</small></button></div><div class="editor"><div class="editor-user"><span class="avatar">PB</span><div><strong>Pranab Baro</strong><small>Posting as professional</small></div></div><input id="postTitle" placeholder="Add a title (optional)" /><textarea id="postBody" rows="6" placeholder="What would you like to share?"></textarea><div class="editor-toolbar"><button><i data-lucide="image"></i></button><button><i data-lucide="video"></i></button><button><i data-lucide="paperclip"></i></button><button><i data-lucide="hash"></i></button><span></span><button class="primary-btn" id="publishPost">Publish</button></div></div></div></div>
+<aside class="drawer" id="messageDrawer"><div class="drawer-header"><div><h3>Messages</h3><small>3 unread conversations</small></div><button class="drawer-close"><i data-lucide="x"></i></button></div><div class="message-search"><i data-lucide="search"></i><input placeholder="Search messages"></div><div id="messageList"></div></aside>
+<aside class="drawer" id="notificationDrawer"><div class="drawer-header"><div><h3>Notifications</h3><small>Professional activity and updates</small></div><button class="drawer-close"><i data-lucide="x"></i></button></div><div id="notificationList"></div></aside>
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
 </body>
 </html>
