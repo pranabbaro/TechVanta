@@ -41,3 +41,10 @@ This is front-end only. Interactions work in the browser, but permanent data, re
 - The photo is resized in the browser to 512 x 512 before it is saved locally.
 
 This is still front-end only. The photo and post changes are stored in the browser, not in a shared cloud database yet.
+
+
+## V3 additions
+- Midnight Jade + Amethyst professional visual theme.
+- Send/cancel connection requests from My Network.
+- Browser-local two-way messaging interface with persistent sent messages.
+- Image attachment in post composer with type/size validation and client-side resize.
