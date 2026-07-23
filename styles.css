@@ -2,3 +2,16 @@
 @media(max-width:1150px){.main-nav .nav-item{width:60px}.nav-item span{display:none}.layout{grid-template-columns:205px 1fr}.right-sidebar{display:none}.people-grid,.company-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:850px){.brand small,.profile-text,.profile-chip>svg{display:none}.main-nav{position:fixed;z-index:150;bottom:0;left:0;right:0;height:58px;background:#fff;border-top:1px solid var(--line);justify-content:space-around}.main-nav .nav-item{width:auto;flex:1;gap:2px}.main-nav .nav-item span{display:block;font-size:7px}.nav-item.active:after{top:0;bottom:auto}.layout{grid-template-columns:1fr}.left-sidebar{display:none}.global-search-wrap{max-width:none}.people-grid,.company-grid,.course-grid,.event-grid,.knowledge-grid,.community-grid{grid-template-columns:repeat(2,1fr)}.impact-grid{grid-template-columns:repeat(3,1fr)}.create-types{grid-template-columns:repeat(3,1fr)}body{padding-bottom:60px}}
 @media(max-width:600px){.container{width:min(100% - 18px,1400px)}.topbar-inner{gap:7px}.brand strong{font-size:14px}.brand-icon{width:32px;height:32px}.global-search-wrap{min-width:0}.top-actions .icon-action{display:none}.create-btn{width:36px;padding:0;font-size:0}.profile-chip{display:none}.layout{padding-top:8px}.composer-actions{overflow:auto;justify-content:flex-start}.composer-actions button{min-width:75px}.post-media{height:190px}.page-hero{padding:20px;display:block}.page-hero .primary-btn,.page-hero .outline-btn{margin-top:14px}.stats-row,.people-grid,.company-grid,.course-grid,.event-grid,.knowledge-grid,.community-grid,.featured-grid{grid-template-columns:1fr}.job-search{grid-template-columns:1fr}.job-card{grid-template-columns:auto 1fr}.match{grid-column:2}.impact-grid{grid-template-columns:repeat(2,1fr)}.skill-list>div{grid-template-columns:1fr}.profile-cover{height:120px}.profile-avatar{width:90px;height:90px;transform:translateY(-50px)}.create-types{grid-template-columns:repeat(2,1fr)}}
+
+.avatar.has-photo{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;color:transparent!important}
+.profile-photo-wrap{position:relative;width:115px;height:68px}
+.photo-upload-btn{position:absolute;right:-4px;top:22px;width:34px;height:34px;border-radius:50%;border:3px solid #fff;background:var(--blue);color:#fff;display:grid;place-items:center;box-shadow:0 7px 18px rgba(20,102,255,.25)}
+.photo-upload-btn svg{width:15px}
+.post-menu-wrap{position:relative}
+.post-menu{position:absolute;right:0;top:28px;min-width:150px;background:#fff;border:1px solid var(--line);border-radius:9px;box-shadow:0 12px 32px rgba(20,45,90,.15);padding:5px;display:none;z-index:20}
+.post-menu.open{display:block}
+.post-menu button{width:100%;border:0;background:none;color:var(--text);text-align:left;padding:9px 10px;border-radius:7px;font-size:8px;display:flex;align-items:center;gap:7px}
+.post-menu button:hover{background:#f5f7fb}
+.post-menu button.delete-post{color:var(--red)}
+.post-menu button svg{width:14px}
+@media(max-width:600px){.profile-photo-wrap{width:90px;height:55px}.photo-upload-btn{top:15px;right:-5px}.profile-buttons{flex-wrap:wrap;justify-content:flex-end}}

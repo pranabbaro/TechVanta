@@ -31,3 +31,13 @@ Keep GitHub Pages configured to `main` and `/(root)`.
 
 ## Important
 This is front-end only. Interactions work in the browser, but permanent data, real users, messaging, uploads, authentication and AI require a backend/database later.
+
+
+## V2.1 additions
+- Delete your own posts from the three-dot menu.
+- Deleted demo posts remain deleted after refresh on the same browser.
+- Newly created posts persist after refresh on the same browser.
+- Upload, change and remove your profile photo.
+- The photo is resized in the browser to 512 x 512 before it is saved locally.
+
+This is still front-end only. The photo and post changes are stored in the browser, not in a shared cloud database yet.
